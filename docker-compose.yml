@@ -1,0 +1,10 @@
+version: "3.6"
+services:
+  reddcoin-priceticker:
+    container_name: reddcoin-priceticker
+    image: reddcoin-priceticker
+    restart: always
+    build:
+      context: .
+    ports:
+      - "3001:3001"
