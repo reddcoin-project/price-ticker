@@ -31,7 +31,7 @@ let cacheMiddleware = (duration) => {
 app.get('/price-ticker', cacheMiddleware(30), async (req, res) => {
   let data = await CoinGeckoClient.simple.price({
     ids: ['reddcoin'],
-    vs_currencies: ["ars", "brl", "cny", "eur", "gbp", "hrk", "inr", "ppc", "ron", "rub", 'usd', 'krw'],
+    vs_currencies: ["ars", "aud", "brl", "cny", "eur", "gbp", "hrk", "inr", "ppc", "ron", "rub", 'usd', 'krw'],
   });
 
   const newObj = Object.fromEntries(
