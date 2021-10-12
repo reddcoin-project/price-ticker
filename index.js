@@ -28,7 +28,7 @@ let cacheMiddleware = (duration) => {
   }
 }
 
-app.get('/', cacheMiddleware(30), async (req, res) => {
+app.get('/price-ticker', cacheMiddleware(30), async (req, res) => {
   let data = await CoinGeckoClient.simple.price({
     ids: ['reddcoin'],
     vs_currencies: ["ars", "brl", "cny", "eur", "gbp", "hrk", "inr", "ppc", "ron", "rub", 'usd', 'krw'],
