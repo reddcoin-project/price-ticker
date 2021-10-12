@@ -1,8 +1,10 @@
 const express = require('express');
 const CoinGecko = require('coingecko-api');
 const cache = require('memory-cache');
+const morgan = require('morgan');
 
 const app = express();
+app.use(morgan('combined'));
 const port = 3001;
 const CoinGeckoClient = new CoinGecko();
 
