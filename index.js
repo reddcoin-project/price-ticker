@@ -34,7 +34,11 @@ app.get('/price-ticker', cacheMiddleware(30), async (req, res) => {
     vs_currencies: ["ars", "brl", "cny", "eur", "gbp", "hrk", "inr", "ppc", "ron", "rub", 'usd', 'krw'],
   });
 
-  res.json(data.data.reddcoin)
+  const newObj = Object.fromEntries(
+      Object.entries(data.data.reddcoin).map(([k, v]) => [k.toUpperCase(), v])
+  );
+
+  res.json(newObj)
 })
 
 app.listen(port, () => {
